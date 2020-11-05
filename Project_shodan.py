@@ -6,17 +6,12 @@ SHODAN_KEY = input("[+]insert shodan key: ")
 api = shodan.Shodan(SHODAN_KEY)
 
 Search_list = []
-
-def _Table():
-    Search_list.append(['Organization', 'port', 'ip address'])
-    Search_table = AsciiTable(Search_list)
-    print(Search_table.table)
-
+Search_list.append(['Organization', 'port', 'ip address'])
 
 try:
     insert_search = input("[+] search: ")
     results = api.search(insert_search)
-    _Table()
+    Search_table = AsciiTable(Search_list)
 
 except Exception as e:
     print("error", e)
