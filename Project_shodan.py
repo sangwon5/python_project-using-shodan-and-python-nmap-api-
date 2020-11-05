@@ -3,7 +3,6 @@ import terminaltables
 
 SHODAN_KEY = input("[+]insert shodan key: ")
 api = shodan.Shodan(SHODAN_KEY)
-print("shodan init " + SHODAN_KEY)
 
 
 def  result(com, val):
