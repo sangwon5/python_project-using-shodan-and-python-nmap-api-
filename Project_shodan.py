@@ -12,6 +12,7 @@ try:
     insert_search = input("[+] search: ")
     results = api.search(insert_search)
     Search_table = AsciiTable(Search_list)
+    print(Search_table.table)
 
 except Exception as e:
     print("error", e)
