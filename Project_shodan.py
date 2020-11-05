@@ -1,7 +1,9 @@
 import shodan
+import terminaltables
 
-SHODAN_KEY = "2lKwmuzaaqeD921rVTC0Vtid79dYZTBy"
+SHODAN_KEY = input("[+]insert shodan key: ")
 api = shodan.Shodan(SHODAN_KEY)
+print("shodan init " + SHODAN_KEY)
 
 
 def  result(com, val):
@@ -10,20 +12,17 @@ def  result(com, val):
             print(val)
 
     elif(com == "show"):
-        print("it will show list"):
+        print("it will show list")
 
     elif(com == "scan start"):
         print("for sca start")
 
 
 
-Search_list[]
 try:
     insert_search = input("[+] search: ")
     results = api.search(insert_search)
-    print(result.items())
-    for Target in result.keys():
-        print(Target)
+    print(results)
 
-except(Exception as e):
-    print(e)
+except Exception as e:
+    print("error", e)
