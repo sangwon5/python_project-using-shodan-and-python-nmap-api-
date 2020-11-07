@@ -61,7 +61,7 @@ try:
             else:
                 print(Scan_table.table)
         elif(com == 'clear' and val == 'list'):
-            print("[+] clearing the scan table")
+            print("[+] clearing the scan list")
             Scan_list.clear()
         elif(com == 'exit' and val == 'program'):
             exit(1)
