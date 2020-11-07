@@ -11,6 +11,18 @@ Search_list.append(['Organization', 'port', 'ip address'])
 _list = {}
 
 
+<<<<<<< HEAD
+=======
+nmap_info = [
+                ['command', 'info']
+                ['add <ip>', 'add ip_address in to the scan list'],
+                ['show list', 'Show the scan list'],
+                ['scan start', 'scan the ip_address in the scanlist'],
+                ['clear list', 'Clear the scan list'] 
+            ]
+info_table = AsciiTable(nmap_info)
+
+>>>>>>> workspace
 try:
     insert_search = input("[+] search: ")
     results = api.search(str(insert_search))
@@ -24,5 +36,10 @@ try:
     file = open('result.txt', 'w')
     file.write(Search_table.table)
     file.close()
+    print("[+] file is saved in result.txt")
+    print("===starting nmap===")
+    print(info_table.table)
+
+
 except Exception as e:
     print("error", e)
