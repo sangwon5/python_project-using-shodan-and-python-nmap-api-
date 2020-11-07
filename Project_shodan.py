@@ -10,11 +10,8 @@ Search_list.append(['Organization', 'port', 'ip address'])
 
 _list = {}
 
-
-<<<<<<< HEAD
-=======
 nmap_info = [
-                ['command', 'info']
+                ['command', 'info'],
                 ['add <ip>', 'add ip_address in to the scan list'],
                 ['show list', 'Show the scan list'],
                 ['scan start', 'scan the ip_address in the scanlist'],
@@ -22,7 +19,6 @@ nmap_info = [
             ]
 info_table = AsciiTable(nmap_info)
 
->>>>>>> workspace
 try:
     insert_search = input("[+] search: ")
     results = api.search(str(insert_search))
