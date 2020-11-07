@@ -11,8 +11,6 @@ Search_list.append(['Organization', 'port', 'ip address'])
 _list = {}
 
 
-
-
 try:
     insert_search = input("[+] search: ")
     results = api.search(str(insert_search))
