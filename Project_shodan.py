@@ -58,7 +58,7 @@ try:
         elif(com == 'remove'):
             print('[+] remove', _list[val], ': ',val )
             print(Scan_list)
-           print("")   
+            print("")   
         elif(com == 'show' and val == 'list'):
             if(len(Scan_table.table) == 5):
                 print("[*] Scan table is emty [*]")
