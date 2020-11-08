@@ -1,5 +1,6 @@
 import shodan
 from terminaltables import AsciiTable
+import nmap3
 
 
 SHODAN_KEY = input("[+]insert shodan key: ")
@@ -20,6 +21,7 @@ nmap_info = [
                 ['exit program', 'exit the program']
             ]
 info_table = AsciiTable(nmap_info)
+info_table.inner_row_border = True
 
 try:
     insert_search = input("[+] search: ")
@@ -44,24 +46,40 @@ try:
     Scan_list = []
     Scan_table = AsciiTable(Scan_list)
     Scan_table.inner_row_border = True
-    Scan_list.append(['Organization', 'ip address'])
+    Scan_list.append(['Organization',  "ip address"])
     while(1):
         com, val = input(": ").split()
+        target_List = []
         if(com == 'add'):
            Scan_list.append([_list[val], val])
+           target_List.append(val)
            print('[+]', _list[val], ': ', val, ' added in the list')
            print("")
         elif(com == 'remove'):
             print('[+] remove', _list[val], ': ',val )
             print(Scan_list)
+           print("")   
         elif(com == 'show' and val == 'list'):
             if(len(Scan_table.table) == 5):
                 print("[*] Scan table is emty [*]")
             else:
                 print(Scan_table.table)
+
+        elif(com == 'scan' and val == 'start'):
+            nmap = nmap3.Nmap()
+            for Target in target_List():
+                results = nmap.nmap_os_detection(Target)
+                print(Target)
+                print(results.keys())
+
+            print("")
+            
         elif(com == 'clear' and val == 'list'):
             print("[+] clearing the scan list")
             Scan_list.clear()
+            target_List.clear()
+            Scan_list.append(['Organization', 'ip address'])
+
         elif(com == 'exit' and val == 'program'):
             exit(1)
 
