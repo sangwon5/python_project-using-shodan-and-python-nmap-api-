@@ -52,7 +52,7 @@ try:
            print('[+]', _list[val], ': ', val, ' added in the list')
            print("")
         elif(com == 'remove'):
-            print('[+] remove', _list[val], ': ',val, 'in the list' )
+            print('[+] remove', _list[val], ': ',val )
             print(Scan_list)
         elif(com == 'show' and val == 'list'):
             if(len(Scan_table.table) == 5):
