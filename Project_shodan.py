@@ -18,11 +18,12 @@ nmap_info = [
                 ['show list', 'Show the scan list'],
                 ['scan start', 'scan the ip_address in the scanlist'],
                 ['clear list', 'Clear the scan list'],
-                ['exit program', 'exit the program']
+                ['exit prog', 'exit the program']
             ]
 info_table = AsciiTable(nmap_info)
 info_table.inner_row_border = True
 
+target_List = []
 try:
     insert_search = input("[+] search: ")
     results = api.search(str(insert_search))
@@ -49,10 +50,10 @@ try:
     Scan_list.append(['Organization',  "ip address"])
     while(1):
         com, val = input(": ").split()
-        target_List = []
         if(com == 'add'):
            Scan_list.append([_list[val], val])
            target_List.append(val)
+           
            print('[+]', _list[val], ': ', val, ' added in the list')
            print("")
         elif(com == 'remove'):
@@ -66,11 +67,10 @@ try:
                 print(Scan_table.table)
 
         elif(com == 'scan' and val == 'start'):
-            nmap = nmap3.Nmap()
-            for Target in target_List():
-                results = nmap.nmap_os_detection(Target)
-                print(Target)
-                print(results.keys())
+            nmap = nmap3.NmapScanTechniques()
+            for Target in target_List:
+                results = nmap.nmap_syn_scan(Target)
+                print(results[Target])
 
             print("")
             
@@ -80,7 +80,7 @@ try:
             target_List.clear()
             Scan_list.append(['Organization', 'ip address'])
 
-        elif(com == 'exit' and val == 'program'):
+        elif(com == 'exit' and val == 'prog'):
             exit(1)
 
         else:
