@@ -10,6 +10,7 @@ requirments
 
 
 pip install package
+
 	1. shodan
 	2. python3-nmap
 	3. terminaltables
