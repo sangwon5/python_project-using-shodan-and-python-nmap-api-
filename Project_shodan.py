@@ -68,9 +68,7 @@ try:
                 print('[+] target host name: ', _list[Target])
                 print('[+] target ip address: ', Target)
                 print('-------------------------------')
-                print('[+] all the Results', results[Target])
-                print("======================================================")
-                print("")
+                print('[+] row results: ', results[Target])
 
             print("")
             
