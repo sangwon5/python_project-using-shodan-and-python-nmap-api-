@@ -15,7 +15,9 @@ nmap_info = [
                 ['command', 'info'],
                 ['add <ip>', 'add ip_address in to the scan list'],
                 ['show list', 'Show the scan list'],
-                ['scan start', 'SYN scan the ip_address in the scanlist'],
+                ['show info', 'print out scan info'],
+                ['show tar', 'show target list'],
+                ['scan start', 'SYN scan the ip_address in the scan list'],
                 ['clear list', 'Clear the scan list'],
                 ['exit prog', 'exit the program']
             ]
@@ -60,15 +62,21 @@ try:
                 print("[*] Scan table is emty [*]")
             else:
                 print(Scan_table.table)
+        elif(com == 'show' and val == 'info'):
+            print(info_table.table)
 
+        elif(com == 'show' and val == 'tar'):
+            print(Search_table.table)
         elif(com == 'scan' and val == 'start'):
             nmap = nmap3.NmapScanTechniques()
             for Target in target_List:
                 results = nmap.nmap_syn_scan(Target)
+
+                #need to add save result on <hostname>.txt
                 print('[+] target host name: ', _list[Target])
                 print('[+] target ip address: ', Target)
                 print('-------------------------------')
-                print('[+] row results: ', results[Target])
+                print('[+] raw results: ', results[Target])
 
             print("")
             
